@@ -13,10 +13,10 @@ console.log(items);
 let activeItem = 0;
 
 //navigazione in su
-const upBtn = document.getElementById("angle_up");
+const downBtn = document.getElementById("angle_down");
 
 //aggiungo l'azione di scroll sopra al mio bottone
-upBtn.addEventListener("click", function () {
+downBtn.addEventListener("click", function () {
 
     if (activeItem < items.length - 1) {
         //tolgo la classe active dall'elemento corrente
@@ -28,10 +28,37 @@ upBtn.addEventListener("click", function () {
         //aggiungo la classe active all'elemento successivo
         items[activeItem].classList.add('active');
 
-        if (activeItem === items.length - 1) {
-            //siamo arrivati all'ultimo elemento (sparisce la freccia (btn))
-            upBtn.classList.add('hidden');
-        }
+        // if (activeItem === items.length - 1) {
+        //     //siamo arrivati all'ultimo elemento (sparisce la freccia (btn))
+        //     downBtn.classList.add('hidden');
+        // }
+
+    }
+
+}
+)
+
+
+//navigazione in su
+const upBtn = document.getElementById("angle_up");
+
+//aggiungo l'azione di scroll sopra al mio bottone
+upBtn.addEventListener("click", function () {
+
+    if (activeItem > 0) {
+        //tolgo la classe active dall'elemento corrente
+        items[activeItem].classList.remove('active');
+
+        //decremento l'indice dell'elemento da visualizzare
+        activeItem--;
+
+        //aggiungo la classe active all'elemento successivo
+        items[activeItem].classList.add('active');
+
+        // if (activeItem === 0) {
+        //     //siamo arrivati al primo elemento (sparisce la freccia (btn))
+        //     upBtn.classList.add('hidden');
+        // }
 
     }
 
